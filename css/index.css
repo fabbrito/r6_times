@@ -127,8 +127,10 @@ button[disabled=disabled], button:disabled {
 
 #erros-form{
   color: red;
+  padding-bottom: 1em;
 }
 
 #erros-busca{
   color: red;
+  padding-bottom: 1em;
 }

@@ -8,7 +8,4 @@ botaoLimpa.addEventListener("click", function(event) {
       jogador.remove();
     }, 400);
   });
-  
-  var mensagensErro = document.querySelector("#erros-gerais")
-  mensagensErro.innerHTML = "";
 });
