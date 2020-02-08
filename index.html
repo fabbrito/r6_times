@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>R6 Gerador de Times</title>
+  <!-- <link rel="icon" href="img/favicon.ico" type="image/x-icon"> -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="titulo">R6 Gerador de Times</h1>
+    </div>
+  </header>
+  <main>
+    <section class="container">
+      <h2>Jogadores</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nickname</th>
+            <th>MMR</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-jogadores">
+          <tr class="jogador">
+            <td class="info-nick">Beaulo</td>
+            <td class="info-mmr"></td>
+          </tr>
+          <tr class="jogador">
+            <td class="info-nick">Pengu</td>
+            <td class="info-mmr"></td>
+          </tr>
+          <tr class="jogador">
+            <td class="info-nick">KingGeorge</td>
+            <td class="info-mmr"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="bto-grupo">
+        <button id="buscar-jogadores" class="bto-inline">Buscar R6Tab</button>
+        <button id="embaralhar-jogadores" class="bto-inline">Separar times</button>
+        <button id="limpar-jogadores" class="bto-inline">Limpar</button>
+      </div>
+    </section>
+    <section class="container">
+      <h2 id="titulo-form">Adicionar novo jogador</h2>
+      <form id="form-adiciona">
+        <div class="grupo">
+          <label for="nick">Nickname:</label>
+          <input id="nick" name="nick" type="text" placeholder="Nickname do jogador" class="campo campo-medio">
+        </div>
+        <div class="grupo">
+          <label for="mmr">MMR:</label>
+          <input id="mmr" name="mmr" type="text" placeholder="MMR do jogador" class="campo campo-medio">
+        </div>
+        <button id="adicionar-jogador" class="botao">Adicionar</button>
+      </form>
+    </section>
+    <section class="container">
+      <ul id="erros-form"></ul>
+      <ul id="erros-busca"></ul>
+    </section>
+  </main>
+  <script src="js/form.js"></script>
+  <script src="js/remove_jogador.js"></script>
+  <script src="js/busca_r6tab.js"></script>
+  <script src="js/clear_table.js"></script>
+  <!-- <br>
+  <h3>Nickname</h3>
+  <h3>MMR</h3>
+  <br>
+  <p id="input_field"></p>
+  <button>Gerar Times</button>
+
+  <script>
+    var text = "";
+    for (var i = 0; i < 10; i++) {
+      text += "<input type='number' id='mmr" + i + "' value=0>";
+      text += "<input type='text' id='nomes" + i + "'>";
+      text += "<br>"
+    }
+    document.getElementById("input_field").innerHTML = text;
+
+    function adicionardados() {
+      var dados_mmr = [];
+      var dados_nomes = [];
+      for (var i = 0; i < 10; i++) {
+        dados_mmr.push(parseInt(document.getElementById("mmr" + i).value));
+        dados_nomes.push(document.getElementById("nomes" + i).value);
+      }
+      console.log(dados_mmr)
+      console.log(dados_nomes)
+    }
+
+    var button = document.querySelector("button")
+    button.onclick = adicionardados
+  </script> -->
+
+</body>
+
+</html>
