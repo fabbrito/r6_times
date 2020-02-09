@@ -12,8 +12,8 @@ botaoBusca.addEventListener("click", function(event) {
 
     if (mmr.length == 0) {
       var xhr = new XMLHttpRequest();
-      var apiURL = "https://r6tab.com/api/search.php?platform=uplay&search=" + nick;
-      xhr.open("GET", apiURL);
+      var apiSearchURL = "https://r6tab.com/api/search.php?platform=uplay&search=" + nick;
+      xhr.open("GET", apiSearchURL);
       xhr.addEventListener("load", function() {
         if (xhr.status == 200) {
           var r6TabResp = JSON.parse(this.responseText);
@@ -29,7 +29,7 @@ botaoBusca.addEventListener("click", function(event) {
         };
       });
       xhr.send();
-    }
+    };
   });
   var mensagensErro = document.querySelector("#erros-busca")
   mensagensErro.innerHTML = "";
