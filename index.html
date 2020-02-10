@@ -16,6 +16,23 @@
     </div>
   </header>
   <main>
+    <!-- ========================================================= -->
+    <section class="container">
+      <h2 id="titulo-form">Adicionar novo jogador</h2>
+      <form id="form-adiciona">
+        <div class="grupo">
+          <label for="nick">Nickname:</label>
+          <input id="nick" name="nick" type="text" placeholder="Nickname do jogador" class="campo campo-medio" autofocus />
+        </div>
+        <div class="grupo">
+          <label for="mmr">MMR:</label>
+          <input id="mmr" name="mmr" type="text" placeholder="MMR do jogador" class="campo campo-medio" />
+        </div>
+        <button id="adicionar-jogador" class="botao">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- ========================================================= -->
     <section class="container">
       <h2>Jogadores</h2>
       <table>
@@ -23,52 +40,45 @@
           <tr>
             <th>Nickname</th>
             <th>MMR</th>
+            <th>Time</th>
           </tr>
         </thead>
         <tbody id="tabela-jogadores">
           <tr class="jogador">
-            <td class="info-nick">Beaulo</td>
+            <td class="info-nick">Kaeiel</td>
             <td class="info-mmr"></td>
+            <td class="info-time">----</td>
           </tr>
           <tr class="jogador">
-            <td class="info-nick">Pengu</td>
+            <td class="info-nick">Floquinhodeneve</td>
             <td class="info-mmr"></td>
+            <td class="info-time">----</td>
           </tr>
           <tr class="jogador">
-            <td class="info-nick">KingGeorge</td>
+            <td class="info-nick">Lanzaaaaa</td>
             <td class="info-mmr"></td>
+            <td class="info-time">----</td>
           </tr>
         </tbody>
       </table>
       <div class="bto-grupo">
-        <button id="buscar-jogadores" class="bto-inline">Buscar R6Tab</button>
-        <button id="embaralhar-jogadores" class="bto-inline">Separar times</button>
-        <button id="limpar-jogadores" class="bto-inline">Limpar</button>
+        <button id="buscar-jogadores" class="botao bto-inline">Buscar R6Tab</button>
+        <button id="gerar-times" class="botao bto-inline">Separar times</button>
+        <button id="limpar-jogadores" class="botao bto-inline">Limpar</button>
       </div>
     </section>
-    <section class="container">
-      <h2 id="titulo-form">Adicionar novo jogador</h2>
-      <form id="form-adiciona">
-        <div class="grupo">
-          <label for="nick">Nickname:</label>
-          <input id="nick" name="nick" type="text" placeholder="Nickname do jogador" class="campo campo-medio">
-        </div>
-        <div class="grupo">
-          <label for="mmr">MMR:</label>
-          <input id="mmr" name="mmr" type="text" placeholder="MMR do jogador" class="campo campo-medio">
-        </div>
-        <button id="adicionar-jogador" class="botao">Adicionar</button>
-      </form>
-    </section>
+    <!-- ========================================================= -->
     <section class="container">
       <ul id="erros-form"></ul>
       <ul id="erros-busca"></ul>
     </section>
+    <!-- ========================================================= -->
   </main>
   <script src="js/form.js"></script>
   <script src="js/remove_jogador.js"></script>
   <script src="js/busca_r6tab.js"></script>
   <script src="js/clear_table.js"></script>
+  <script src="js/gerar_times.js"></script>
 
 </body>
 

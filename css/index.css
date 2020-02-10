@@ -28,7 +28,7 @@ header .container:before {
 }
 
 .container {
-  width: 60%;
+  width: 70%;
   height: 100%;
   margin: 0 auto;
 }
@@ -36,14 +36,18 @@ header .container:before {
 section {
   margin: 2em 0;
   overflow: hidden;
+  /* position:relative; */
 }
 
 section h2 {
-  font-size: 3em;
+  font-size: 2em;
   display: block;
   padding-bottom: .5em;
   border-bottom: 1px solid #ccc;
   margin-bottom: .5em;
+  padding-top: .5em;
+  /* border-top: 1px solid #ccc;
+  margin-top: .5em; */
 }
 
 table {
@@ -59,9 +63,13 @@ td, th {
   text-align: center;
 }
 
+tr:hover {
+  background-color: #f7f7f7;
+}
+
 th {
   font-weight: bold;
-  background-color: #EEE;
+  background-color: #e0e0e0;
 }
 
 label {
@@ -84,40 +92,34 @@ label {
 }
 
 .grupo {
-  width: 25%;
+  width: 30%;
   display: inline-block;
   padding: 10px 0px;
 }
 
-button {
-  padding: .5em 2em;
+.botao {
+  padding: .4em 2em;
   border: 0;
   border-bottom: 3px solid;
   font-size: 1.2em;
   cursor: pointer;
-  margin: 0;
-  margin-top: -3px;
   color: #fff;
   background-color: #0c8cd3;
   border-color: #04324c;
   width: 30%;
-  display: block;
+  display: inline-block;
   clear: both;
   margin: 10px 0px;
 }
 
-button:active {
-  margin-top: 0px;
-  border: 0;
+.botao:active {
+  margin: 10px 0px;
+  border-color: #04324c00;
 }
 
-button[disabled=disabled], button:disabled {
+.botao[disabled=disabled], button:disabled {
   background-color: gray;
   border-color: darkgray;
-}
-
-.bto-inline {
-  display: inline-block;
 }
 
 .fadeOut {
@@ -133,4 +135,8 @@ button[disabled=disabled], button:disabled {
 #erros-busca{
   color: red;
   padding-bottom: 1em;
+}
+
+.erro-jogador{
+  color: orange;
 }

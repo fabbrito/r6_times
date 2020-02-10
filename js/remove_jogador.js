@@ -2,7 +2,10 @@ var jogadores = document.querySelectorAll('.jogador');
 
 var tabela = document.querySelector('#tabela-jogadores');
 
-tabela.addEventListener("dblclick", function(event){
+// dblclick --> double click
+// contextmenu --> right click
+tabela.addEventListener("contextmenu", function(event){
+  event.preventDefault();
   // this --> dono do evento
   // event.target --> alvo do evento
   // event.target.parentNode --> pai do alvo do evento

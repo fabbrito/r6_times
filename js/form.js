@@ -1,5 +1,6 @@
 var botaoAdicionar = document.querySelector("#adicionar-jogador");
-botaoAdicionar.addEventListener("click", function(event){
+botaoAdicionar.addEventListener("click", function(event) {
+  // Desabilita o comportamento padrao do formulario (reset e f5)
   event.preventDefault();
 
   var form = document.querySelector("#form-adiciona");
@@ -13,16 +14,18 @@ botaoAdicionar.addEventListener("click", function(event){
     return;
   }
   // Adiciona o jogador na tabela
-  adicionaJogadorTabela(jogador)
+  adicionaJogadorTabela(jogador);
 
   // Reset do formulario e dos erros
   form.reset();
   var mensagensErro = document.querySelector("#erros-form")
   mensagensErro.innerHTML = "";
+  // Retorna o foco para o input de nickname
+  document.querySelector("#nick").focus();
 });
 
 //=============================================================
-function montarTd(dado, classe) {
+function montaTd(dado, classe) {
   var td = document.createElement("td");
   td.classList.add(classe);
   td.textContent = dado;
@@ -30,23 +33,24 @@ function montarTd(dado, classe) {
 }
 
 //=============================================================
-function montarTr(jogador) {
-  var trJogador = document.createElement("tr");
-  trJogador.classList.add("jogador");
+function montaTr(objJogador) {
+  var tr = document.createElement("tr");
+  tr.classList.add("jogador");
 
-  trJogador.appendChild(montarTd(jogador.nick, "info-nick"));
-  trJogador.appendChild(montarTd(jogador.mmr, "info-mmr"));
-
-  return trJogador
+  tr.appendChild(montaTd(objJogador.nick, "info-nick"));
+  tr.appendChild(montaTd(objJogador.mmr, "info-mmr"));
+  tr.appendChild(montaTd(objJogador.time, "info-time"));
+  
+  return tr
 }
 
 //=============================================================
-function adicionaJogadorTabela(jogador) {
-  // Montar nova linha da tabela
-  var trJogador = montarTr(jogador)
+function adicionaJogadorTabela(objJogador) {
+  // Monta nova linha da tabela
+  var tr = montaTr(objJogador)
   // Adiciona a nova linha criada
   var tabela = document.querySelector("#tabela-jogadores");
-  tabela.appendChild(trJogador);
+  tabela.appendChild(tr);
 }
 
 //=============================================================
@@ -54,29 +58,35 @@ function exibeMensagensDeErro(erros, classe) {
   var ul = document.querySelector(classe)
   ul.innerHTML = "";
 
-  erros.forEach(function(erro) {
-    var li = document.createElement("li");
-    li.textContent = erro;
-    ul.appendChild(li);
-  });
+  if (erros.length > 0) {
+    erros.forEach(erro => {
+      var li = document.createElement("li");
+      li.textContent = erro;
+      ul.appendChild(li);
+    });
+  };
 };
 
 //=============================================================
-function validaJogador(jogador) {
+function validaJogador(objJogador) {
   var erros = [];
 
-  if (jogador.nick.length == 0) {
+  if (objJogador.nick.length == 0) {
     erros.push("O nickname do jogador não pode ser em branco!");
+  }
+  if (objJogador.mmr < -5000 || objJogador.mmr > 10000) {
+    erros.push("Valor de MMR inválido!");
   }
 
   return erros
 };
 
 //=============================================================
-function extrairDadosDoJogador(form){
+function extrairDadosDoJogador(form) {
   var jogador = {
     nick: form.nick.value,
-    mmr: form.mmr.value
+    mmr: form.mmr.value,
+    time: "----"
   };
   return jogador
 };
