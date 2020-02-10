@@ -15,7 +15,7 @@ header {
 }
 
 header h1 {
-  font-size: 2em;
+  font-size: 3em;
   display: inline-block;
   vertical-align: middle;
 }
@@ -36,7 +36,6 @@ header .container:before {
 section {
   margin: 2em 0;
   overflow: hidden;
-  /* position:relative; */
 }
 
 section h2 {
@@ -92,7 +91,7 @@ label {
 }
 
 .grupo {
-  width: 30%;
+  width: 25%;
   display: inline-block;
   padding: 10px 0px;
 }
@@ -106,7 +105,7 @@ label {
   color: #fff;
   background-color: #0c8cd3;
   border-color: #04324c;
-  width: 30%;
+  width: 25%;
   display: inline-block;
   clear: both;
   margin: 10px 0px;
