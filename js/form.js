@@ -30,7 +30,7 @@ function montaTd(dado, classe) {
   td.classList.add(classe);
   td.textContent = dado;
   return td
-}
+};
 
 //=============================================================
 function montaTr(objJogador) {
@@ -40,9 +40,9 @@ function montaTr(objJogador) {
   tr.appendChild(montaTd(objJogador.nick, "info-nick"));
   tr.appendChild(montaTd(objJogador.mmr, "info-mmr"));
   tr.appendChild(montaTd(objJogador.time, "info-time"));
-  
+
   return tr
-}
+};
 
 //=============================================================
 function adicionaJogadorTabela(objJogador) {
@@ -51,7 +51,7 @@ function adicionaJogadorTabela(objJogador) {
   // Adiciona a nova linha criada
   var tabela = document.querySelector("#tabela-jogadores");
   tabela.appendChild(tr);
-}
+};
 
 //=============================================================
 function exibeMensagensDeErro(erros, classe) {
