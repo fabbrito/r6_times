@@ -4,14 +4,12 @@ botaoBusca.addEventListener("click", function(event) {
   var listaJogadores = document.querySelectorAll(".jogador");
   listaJogadores.forEach(jogador => {
     if (jogador.querySelector(".info-mmr").textContent.length === 0) {
-      if (jogador.classList.value.includes("erro-jogador")){
-        jogador.classList.remove("erro-jogador");
-      };
       apiSearchRequest(jogador);
     };
   });
 
-  limpaTodosErros();
+  limpaErros(); // fcn em gerenciador_erros.js
+  limpaAlertas(); // fcn em gerenciador_erros.js
 });
 
 //=============================================================

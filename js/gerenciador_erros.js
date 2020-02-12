@@ -14,13 +14,25 @@ function exibeMensagensDeErro(erros, classe) {
 //=============================================================
 function erroBuscaJogador(jogador) {
   jogador.classList.add("erro-jogador");
-  var msgErro = "Um dos jogadores não foi localizado na base de dados do R6 Tab!";
-  // fcn definida em form.js
-  exibeMensagensDeErro([msgErro], "#erros-busca");
+  setTimeout(function() {
+    var msgErro = "Um dos jogadores não foi localizado na base de dados do R6 Tab!";
+    exibeMensagensDeErro([msgErro], "#erros-busca"); // fcn definida em form.js
+  }, 300);
 };
 
 //=============================================================
-function errosGerador(listaJogadoresComErro) {
+function erroGerarTimes(listaJogadoresComErro){
+  var erros = [];
+  erros.push("A diferença de MMR é maior que 1000!");
+  listaJogadoresComErro.forEach(jogadorComErro => {
+    jogadorComErro.classList.add("erro-jogador");
+  });
+  // fcn definida em form.js
+  exibeMensagensDeErro(erros, "#erros-gerador");
+};
+
+//=============================================================
+function erroRevalidaJogador(listaJogadoresComErro) {
   var erros = [];
   erros.push("O valor de MMR não pode estar em branco para essa operação!");
   listaJogadoresComErro.forEach(jogadorComErro => {
@@ -31,10 +43,31 @@ function errosGerador(listaJogadoresComErro) {
 };
 
 //=============================================================
-function limpaTodosErros() {
+function limpaErros() {
   var idsErro = document.querySelectorAll('*[id^="erros-"]');
   idsErro.forEach(id => {
     id.innerHTML = "";
   });
 };
+
+//=============================================================
+function limpaAlertas() {
+  var idsAlertas = document.querySelectorAll('*[class*="erro-jogador"]');
+  idsAlertas.forEach(id => {
+    id.classList.remove("erro-jogador");
+  });
+};
+
+//=============================================================
+function realceTabela(alvo) {
+  alvo.classList.add("normal-alerta");
+  setTimeout(function() {
+    alvo.classList.remove("normal-alerta");
+    alvo.classList.add("alerta-normal");
+    setTimeout(function() {
+      alvo.classList.remove("alerta-normal");
+    }, 300);
+  }, 300);
+};
+
 //=============================================================

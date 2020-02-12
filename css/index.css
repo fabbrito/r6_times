@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: Gray;
   height: 3em;
   color: #FFF;
   margin-bottom: 1em;
@@ -63,12 +63,12 @@ td, th {
 }
 
 tr:hover {
-  background-color: #f7f7f7;
+  background-color: AliceBlue;
 }
 
 th {
   font-weight: bold;
-  background-color: #e0e0e0;
+  background-color: SkyBlue;
 }
 
 label {
@@ -126,11 +126,22 @@ label {
   transition: 0.3s;
 }
 
+.normal-alerta, .normal-alerta:hover{
+  background-color: NavajoWhite;
+  transition: background-color 0.3s ease;
+}
+
+.alerta-normal, .alerta-normal:hover{
+  background-color: none;
+  transition: background-color 0.3s ease;
+}
+
+.erro-jogador, .erro-jogador:hover{
+  background-color: LightSalmon;
+  transition: background-color 0.3s ease;
+}
+
 #erros-form, #erros-busca, #erros-gerador{
   color: red;
   padding-bottom: 1em;
-}
-
-.erro-jogador{
-  color: orange;
 }
