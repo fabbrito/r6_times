@@ -126,12 +126,7 @@ label {
   transition: 0.3s;
 }
 
-#erros-form{
-  color: red;
-  padding-bottom: 1em;
-}
-
-#erros-busca{
+#erros-form, #erros-busca, #erros-gerador{
   color: red;
   padding-bottom: 1em;
 }

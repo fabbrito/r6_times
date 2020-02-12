@@ -18,8 +18,7 @@ botaoAdicionar.addEventListener("click", function(event) {
 
   // Reset do formulario e dos erros
   form.reset();
-  var mensagensErro = document.querySelector("#erros-form")
-  mensagensErro.innerHTML = "";
+  limpaTodosErros(); // fcn em gerenciador_erros.js
   // Retorna o foco para o input de nickname
   document.querySelector("#nick").focus();
 });
@@ -54,30 +53,15 @@ function adicionaJogadorTabela(objJogador) {
 };
 
 //=============================================================
-function exibeMensagensDeErro(erros, classe) {
-  var ul = document.querySelector(classe)
-  ul.innerHTML = "";
-
-  if (erros.length > 0) {
-    erros.forEach(erro => {
-      var li = document.createElement("li");
-      li.textContent = erro;
-      ul.appendChild(li);
-    });
-  };
-};
-
-//=============================================================
 function validaJogador(objJogador) {
   var erros = [];
 
-  if (objJogador.nick.length == 0) {
+  if (objJogador.nick.length === 0) {
     erros.push("O nickname do jogador não pode ser em branco!");
   }
   if (objJogador.mmr < -5000 || objJogador.mmr > 10000) {
     erros.push("Valor de MMR inválido!");
   }
-
   return erros
 };
 

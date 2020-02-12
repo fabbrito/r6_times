@@ -3,21 +3,16 @@ var botaoBusca = document.querySelector("#buscar-jogadores");
 botaoBusca.addEventListener("click", function(event) {
   var listaJogadores = document.querySelectorAll(".jogador");
   listaJogadores.forEach(jogador => {
-    if (jogador.querySelector(".info-mmr").textContent.length == 0) {
+    if (jogador.querySelector(".info-mmr").textContent.length === 0) {
+      if (jogador.classList.value.includes("erro-jogador")){
+        jogador.classList.remove("erro-jogador");
+      };
       apiSearchRequest(jogador);
     };
   });
 
-  var ul = document.querySelector("#erros-busca")
-  ul.innerHTML = "";
+  limpaTodosErros();
 });
-
-//=============================================================
-function erroBuscaJogador(jogador) {
-  jogador.classList.add("erro-jogador");
-  var msgErro = "Um dos jogadores não foi localizado na base de dados do R6 Tab!";
-  exibeMensagensDeErro([msgErro], "#erros-busca");
-};
 
 //=============================================================
 function apiSearchRequest(jogador) {
