@@ -9,7 +9,8 @@ botaoBusca.addEventListener("click", function(event) {
   });
 
   limpaErros(); // fcn em gerenciador_erros.js
-  limpaAlertas(); // fcn em gerenciador_erros.js
+  limpaAlertasErro(); // fcn em gerenciador_erros.js
+  limpaAlertasTime(); // fcn em gerenciador_erros.js
 });
 
 //=============================================================

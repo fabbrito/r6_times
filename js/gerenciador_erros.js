@@ -51,10 +51,22 @@ function limpaErros() {
 };
 
 //=============================================================
-function limpaAlertas() {
+function limpaAlertasErro() {
   var idsAlertas = document.querySelectorAll('*[class*="erro-jogador"]');
   idsAlertas.forEach(id => {
     id.classList.remove("erro-jogador");
+  });
+};
+
+//=============================================================
+function limpaAlertasTime() {
+  var idsAlertas0 = document.querySelectorAll('*[class*="time0"]');
+  var idsAlertas1 = document.querySelectorAll('*[class*="time1"]');
+  idsAlertas0.forEach(id => {
+    id.classList.remove("time0");
+  });
+  idsAlertas1.forEach(id => {
+    id.classList.remove("time1");
   });
 };
 

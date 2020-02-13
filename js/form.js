@@ -19,7 +19,8 @@ botaoAdicionar.addEventListener("click", function(event) {
   // Reset do formulario e dos erros
   form.reset();
   limpaErros(); // fcn em gerenciador_erros.js
-  limpaAlertas(); // fcn em gerenciador_erros.js
+  limpaAlertasErro(); // fcn em gerenciador_erros.js
+  limpaAlertasTime(); // fcn em gerenciador_erros.js
   // Retorna o foco para o input de nickname
   document.querySelector("#nick").focus();
 });
@@ -56,16 +57,17 @@ function adicionaJogadorTabela(objJogador) {
 //=============================================================
 function validaJogador(objJogador) {
   var erros = [];
-  var jogadores = document.querySelectorAll('.jogador');
-  var jogadorRE = new RegExp(objJogador.nick, "i")
-  jogadores.forEach(jogador => {
-    if (jogadorRE.test(jogador.querySelector(".info-nick").textContent)) {
-      erros.push("Um jogador com o mesmo nickname já existe na tabela!");
-      realceTabela(jogador);
-    }
-  });
   if (objJogador.nick.length === 0) {
     erros.push("O nickname do jogador não pode ser em branco!");
+  } else {
+    var jogadores = document.querySelectorAll('.jogador');
+    var jogadorRE = new RegExp(objJogador.nick, "i")
+    jogadores.forEach(jogador => {
+      if (jogadorRE.test(jogador.querySelector(".info-nick").textContent)) {
+        erros.push("Um jogador com o mesmo nickname já existe na tabela!");
+        realceTabela(jogador);
+      }
+    });
   }
   if (isNaN(objJogador.mmr)) {
     erros.push("MMR deve ser um número!");

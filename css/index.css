@@ -145,3 +145,13 @@ label {
   color: red;
   padding-bottom: 1em;
 }
+
+.time0, .time0:hover{
+  background-color: NavajoWhite;
+  transition: background-color 0.3s ease;
+}
+
+.time1, .time1:hover{
+  background-color: PaleTurquoise;
+  transition: background-color 0.3s ease;
+}
