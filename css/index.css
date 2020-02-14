@@ -3,8 +3,9 @@
 }
 
 body {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  background: linear-gradient(#fefefe,rgba(113, 200, 235,0.7));
 }
 
 header {
@@ -27,10 +28,29 @@ header .container:before {
   vertical-align: middle;
 }
 
+.logor6{
+  width: 200px;
+  margin: 60px 40px 0 40px;
+}
+
+.titulo-principal{
+  display: block;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(113, 200, 235, 0.7) ;
+}
+
+.titulo{
+  font-weight: bold;
+}
+
 .container {
-  width: 70%;
+  display: block;
+  width: 940px;
   height: 100%;
-  margin: 0 auto;
+  margin: 0 0 0 300px;
+  
 }
 
 section {
@@ -60,6 +80,9 @@ td, th {
   margin: 0;
   border: 1px solid #ccc;
   text-align: center;
+}
+tr {
+  font-weight: bold;
 }
 
 tr:hover {
@@ -109,6 +132,11 @@ label {
   display: inline-block;
   clear: both;
   margin: 10px 0px;
+}
+
+.botao:hover {
+background:  #2f93c9;
+color: #fff;
 }
 
 .botao:active {
