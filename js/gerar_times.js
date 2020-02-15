@@ -68,12 +68,12 @@ botaoTimes.addEventListener("click", function(event) {
   time0Mod.forEach(jog => {
     jog.domObj.classList.add("time0");
     jog.domObj.querySelector(".info-time").textContent = `Time 0\t(${media0.toFixed(0)})`;
-    jog.domObj.querySelector(".info-mmr").textContent += `\t(${(jog.mmr - media0) > 0 ? '+' : ''}${(jog.mmr - media0).toFixed(0)})`
+    // jog.domObj.querySelector(".info-mmr").textContent += `\t(${(jog.mmr - media0) > 0 ? '+' : ''}${(jog.mmr - media0).toFixed(0)})`
   });
   time1Mod.forEach(jog => {
     jog.domObj.classList.add("time1");
     jog.domObj.querySelector(".info-time").textContent = `Time 1\t(${media1.toFixed(0)})`;
-    jog.domObj.querySelector(".info-mmr").textContent += `\t(${(jog.mmr - media1) > 0 ? '+' : ''}${(jog.mmr - media1).toFixed(0)})`
+    // jog.domObj.querySelector(".info-mmr").textContent += `\t(${(jog.mmr - media1) > 0 ? '+' : ''}${(jog.mmr - media1).toFixed(0)})`
   });
 
   // console.log(time0Mod)
