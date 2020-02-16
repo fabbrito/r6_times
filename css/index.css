@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -131,12 +132,18 @@ label {
   width: 25%;
   display: inline-block;
   clear: both;
-  margin: 10px 0px;
+  margin: 10px 10px;
+}
+.bto-grupo{
+  text-align: center;
 }
 
 .botao:hover {
-background:  #2f93c9;
-color: #fff;
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: 1s ;
+  background:  #02a3fa;
+  color: #fff;
 }
 
 .botao:active {
