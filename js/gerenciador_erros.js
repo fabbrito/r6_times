@@ -59,14 +59,16 @@ function limpaAlertasErro() {
 };
 
 //=============================================================
-function limpaAlertasTime() {
+function limpaResultadoTimes() {
   var idsAlertas0 = document.querySelectorAll('*[class*="time0"]');
   var idsAlertas1 = document.querySelectorAll('*[class*="time1"]');
   idsAlertas0.forEach(id => {
     id.classList.remove("time0");
+    id.querySelector(".info-time").textContent = "----";
   });
   idsAlertas1.forEach(id => {
     id.classList.remove("time1");
+    id.querySelector(".info-time").textContent = "----";
   });
 };
 

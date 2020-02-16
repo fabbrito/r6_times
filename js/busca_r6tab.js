@@ -8,9 +8,10 @@ botaoBusca.addEventListener("click", function(event) {
     };
   });
 
-  limpaErros(); // fcn em gerenciador_erros.js
-  limpaAlertasErro(); // fcn em gerenciador_erros.js
-  limpaAlertasTime(); // fcn em gerenciador_erros.js
+  // fcn em gerenciador_erros.js
+  limpaErros(); // Limpa lista de erros
+  limpaAlertasErro(); // Limpa o highlight de erros
+  limpaResultadoTimes(); // Limpa o resultado da separacao em times
 });
 
 //=============================================================

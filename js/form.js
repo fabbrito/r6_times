@@ -9,6 +9,7 @@ botaoAdicionar.addEventListener("click", function(event) {
   // Validacao dos dados
   var erros = validaJogador(jogador);
   // Exibe possiveis erros e retorna caso necessario
+  console.log(erros)
   if (erros.length > 0) {
     exibeMensagensDeErro(erros, "#erros-form");
     return;
@@ -18,9 +19,10 @@ botaoAdicionar.addEventListener("click", function(event) {
 
   // Reset do formulario e dos erros
   form.reset();
-  limpaErros(); // fcn em gerenciador_erros.js
-  limpaAlertasErro(); // fcn em gerenciador_erros.js
-  limpaAlertasTime(); // fcn em gerenciador_erros.js
+  // fcn em gerenciador_erros.js
+  limpaErros(); // Limpa lista de erros
+  limpaAlertasErro(); // Limpa o highlight de erros
+  limpaResultadoTimes(); // Limpa o resultado da separacao em times
   // Retorna o foco para o input de nickname
   document.querySelector("#nick").focus();
 });
@@ -57,23 +59,25 @@ function adicionaJogadorTabela(objJogador) {
 //=============================================================
 function validaJogador(objJogador) {
   var erros = [];
+  var listaJogadores = document.querySelectorAll('.jogador');
   if (objJogador.nick.length === 0) {
     erros.push("O nickname do jogador não pode ser em branco!");
   } else {
-    var jogadores = document.querySelectorAll('.jogador');
-    var jogadorRE = new RegExp(objJogador.nick, "i")
-    jogadores.forEach(jogador => {
-      if (jogadorRE.test(jogador.querySelector(".info-nick").textContent)) {
+    listaJogadores.forEach(jogador => {
+      if (jogador.querySelector(".info-nick").textContent.toLowerCase() === objJogador.nick.toLowerCase()){
         erros.push("Um jogador com o mesmo nickname já existe na tabela!");
         realceTabela(jogador);
-      }
+      };
     });
-  }
-  if (isNaN(objJogador.mmr)) {
-    erros.push("MMR deve ser um número!");
-  } else if (objJogador.mmr < -5000 || objJogador.mmr > 10000) {
-    erros.push("Valor de MMR inválido!");
-  }
+    if (listaJogadores.length >= 10) {
+      erros.push("A quantidade de jogadores deve ser igual a 10!");
+    };
+    if (isNaN(objJogador.mmr)) {
+      erros.push("MMR deve ser um número!");
+    } else if (objJogador.mmr < -5000 || objJogador.mmr > 10000) {
+      erros.push("Valor de MMR inválido! (-5000 < MMR < 10000)!");
+    };
+  };
   return erros
 };
 
