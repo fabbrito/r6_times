@@ -9,7 +9,7 @@ botaoAdicionar.addEventListener("click", function(event) {
   // Validacao dos dados
   var erros = validaJogador(jogador);
   // Exibe possiveis erros e retorna caso necessario
-  console.log(erros)
+  
   if (erros.length > 0) {
     exibeMensagensDeErro(erros, "#erros-form");
     return;

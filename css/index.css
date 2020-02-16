@@ -2,11 +2,18 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
 
 body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  background: linear-gradient(#fefefe,rgba(113, 200, 235,0.7));
+  background: linear-gradient(#fefefe, rgba(113, 200, 235, 0.7));
 }
 
 header {
@@ -29,20 +36,20 @@ header .container:before {
   vertical-align: middle;
 }
 
-.logor6{
+.logor6 {
   width: 200px;
   margin: 60px 40px 0 40px;
 }
 
-.titulo-principal{
+.titulo-principal {
   display: block;
   color: #000000;
   font-weight: bold;
   text-align: center;
-  background: rgba(113, 200, 235, 0.7) ;
+  background: rgba(113, 200, 235, 0.7);
 }
 
-.titulo{
+.titulo {
   font-weight: bold;
 }
 
@@ -51,7 +58,6 @@ header .container:before {
   width: 940px;
   height: 100%;
   margin: 0 0 0 300px;
-  
 }
 
 section {
@@ -82,6 +88,7 @@ td, th {
   border: 1px solid #ccc;
   text-align: center;
 }
+
 tr {
   font-weight: bold;
 }
@@ -134,15 +141,16 @@ label {
   clear: both;
   margin: 10px 10px;
 }
-.bto-grupo{
+
+.bto-grupo {
   text-align: center;
 }
 
 .botao:hover {
   transform: scale(1.2);
   cursor: pointer;
-  transition: 1s ;
-  background:  #02a3fa;
+  transition: 0.2s;
+  background: #02a3fa;
   color: #fff;
 }
 
@@ -161,32 +169,32 @@ label {
   transition: 0.3s;
 }
 
-.normal-alerta, .normal-alerta:hover{
+.normal-alerta, .normal-alerta:hover {
   background-color: NavajoWhite;
   transition: background-color 0.3s ease;
 }
 
-.alerta-normal, .alerta-normal:hover{
+.alerta-normal, .alerta-normal:hover {
   background-color: none;
   transition: background-color 0.3s ease;
 }
 
-.erro-jogador, .erro-jogador:hover{
+.erro-jogador, .erro-jogador:hover {
   background-color: LightSalmon;
   transition: background-color 0.3s ease;
 }
 
-#erros-form, #erros-busca, #erros-gerador{
+#erros-form, #erros-busca, #erros-gerador {
   color: red;
   padding-bottom: 1em;
 }
 
-.time0, .time0:hover{
+.time0, .time0:hover {
   background-color: NavajoWhite;
   transition: background-color 0.3s ease;
 }
 
-.time1, .time1:hover{
+.time1, .time1:hover {
   background-color: PaleTurquoise;
   transition: background-color 0.3s ease;
 }
