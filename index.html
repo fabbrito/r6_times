@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br" >
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
-  <title>R6 Gerador de Times</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTR6</title>
   <!-- <link rel="icon" href="img/favicon.ico" type="image/x-icon"> -->
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,115 +17,138 @@
 </head>
 
 <body>
-  <header>
-
-    <div class="titulo-principal">
-      <h1 class="titulo">R6 Gerador de Times v0.2</h1>
-    </div>
-    <img src="img/logor6blackice.png" class="logor6" alt="logo rainbow six">
-  </header>
-  <main>
-    <!-- ========================================================= -->
-    <section class="container">
-      <h2 id="titulo-form" class="titulo">Adicionar novo jogador</h2>
-      <form id="form-adiciona">
-        <div class="grupo">
-          <label for="nick">Nickname:</label>
-          <input id="nick" name="nick" type="text" placeholder="Nickname do jogador" class="campo campo-medio" autofocus />
-        </div>
-        <div class="grupo">
-          <label for="mmr">MMR:</label>
-          <input id="mmr" name="mmr" type="text" placeholder="MMR do jogador" class="campo campo-medio" />
-        </div>
-        <button id="adicionar-jogador" class="botao">Adicionar</button>
-      </form>
-    </section>
-
-    <!-- ========================================================= -->
-    <section class="container">
-      <h2 class="titulo">Jogadores</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nickname</th>
-            <th>MMR</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody id="tabela-jogadores">
-          <tr class="jogador">
-            <td class="info-nick">Kaeiel</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Floquinhodeneve</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Lanzaaaaa</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Deusnoob..</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Fumacinha-.</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">gbelo3</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Meqtrefe.cotri</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">porc0</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Goenji77</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-          <tr class="jogador">
-            <td class="info-nick">Ceifeiro-.</td>
-            <td class="info-mmr"></td>
-            <td class="info-time">----</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="bto-grupo">
-        <div id="spinner"></div>
-        <button id="buscar-jogadores" class="botao bto-inline">Buscar R6Tab</button>
-        <button id="gerar-times" class="botao bto-inline">Separar times</button>
-        <button id="limpar-jogadores" class="botao bto-inline">Limpar</button>
+  <div id="preloader">
+    <div id="status">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
       </div>
-    </section>
-    <!-- ========================================================= -->
-    <section class="container">
-      <ul id="erros-form"></ul>
-      <ul id="erros-gerador"></ul>
-      <ul id="erros-busca"></ul>
-    </section>
-    <!-- ========================================================= -->
-  </main>
+    </div>
+  </div>
+  <div class="container">
+    <div class="proj-top clearfix">
+      <a href="https://github.com/kaeiel/r6_times/">GitHub Page</a>
+      <span class="right"><a href="https://kaeiel.github.io/r6_times/">v0.3</a></span>
+    </div>
+    <header class="proj-header">
+      <h1 class="titulo">Gerador de Times<span>Rainbow Six: Siege</span></h1>
+    </header>
+    <main class="clearfix">
+      <img src="img/logor6blackice.png" class="inline-img" alt="logo rainbow six" />
+      <div class="main-box">
+        <!-- form section -->
+        <section class="form-section">
+          <h2 id="titulo-form">Adicionar jogador</h2>
+          <form id="form-adiciona" class="proj-form">
+            <div class="form-div">
+              <div class="input-div">
+                <input id="nick" name="nick" type="text" placeholder="Nickname" required autofocus />
+                <input id="mmr" name="mmr" type="number" placeholder="MMR" min="-10000" max="10000" step="1" />
+              </div>
+              <button id="adicionar-jogador" class="bto" type="submit">Incluir</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- table section -->
+        <section class="table-section">
+          <h2>Tabela de jogadores</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nickname</th>
+                <th>MMR</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-jogadores">
+              <tr class="jogador">
+                <td class="info-nick">Kaeiel</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Floquinhodeneve</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Lanzaaaaa</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Deusnoob..</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Fumacinha-.</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">gbelo3</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Meqtrefe.cotri</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">porc0</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Goenji77</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+              <tr class="jogador">
+                <td class="info-nick">Ceifeiro-.</td>
+                <td class="info-mmr"></td>
+                <td class="info-time">----</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="bto-group">
+            <button id="buscar-jogadores" class="bto" type="button">Buscar R6Tab</button>
+            <button id="gerar-times" class="bto" type="button">Separar times</button>
+            <button id="limpar-jogadores" class="bto" type="button">Limpar</button>
+          </div>
+        </section>
+        <!-- error-section -->
+        <section class="error-section">
+          <ul id="erros-form"></ul>
+          <ul id="erros-gerador"></ul>
+          <ul id="erros-busca"></ul>
+        </section>
+        <!-- imagem grande para teste do preloader -->
+        <!-- <img width="100%" src='https://unsplash.it/3000/3000/?random' /> -->
+      </div>
+    </main>
+  </div>
   <script src="js/gerenciador_erros.js"></script>
   <script src="js/form.js"></script>
   <script src="js/editar_tabela.js"></script>
   <script src="js/busca_r6tab.js"></script>
   <script src="js/gerar_times.js"></script>
   <script src="js/spinner.js"></script>
+  <script>
+    $(window).on('load', function () { // makes sure the whole site is loaded 
+      $('#status').fadeOut(); // will first fade out the loading animation 
+      $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+      $('body').delay(350).css({
+        'overflow': 'visible'
+      });
+    })
+  </script>
 
 
 </body>

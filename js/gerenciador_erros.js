@@ -15,7 +15,7 @@ function exibeMensagensDeErro(erros, classe) {
 function erroBuscaJogador(jogador) {
   jogador.classList.add("erro-jogador");
   setTimeout(function() {
-    var msgErro = "Um dos jogadores não foi localizado na base de dados do R6 Tab!";
+    var msgErro = "[ERRO] Um dos jogadores não foi localizado na base de dados do R6 Tab!";
     exibeMensagensDeErro([msgErro], "#erros-busca"); // fcn definida em form.js
   }, 300);
 };
@@ -23,7 +23,7 @@ function erroBuscaJogador(jogador) {
 //=============================================================
 function erroGerarTimes(listaJogadoresComErro){
   var erros = [];
-  erros.push("A diferença de MMR é maior que 1000!");
+  erros.push("[ALERTA] A diferença de MMR é maior que 1000!");
   listaJogadoresComErro.forEach(jogadorComErro => {
     jogadorComErro.classList.add("erro-jogador");
   });
@@ -34,7 +34,7 @@ function erroGerarTimes(listaJogadoresComErro){
 //=============================================================
 function erroRevalidaJogador(listaJogadoresComErro) {
   var erros = [];
-  erros.push("O valor de MMR não pode estar em branco para essa operação!");
+  erros.push("[ERRO] O valor de MMR não pode estar em branco para essa operação!");
   listaJogadoresComErro.forEach(jogadorComErro => {
     jogadorComErro.classList.add("erro-jogador");
   });
