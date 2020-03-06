@@ -1,15 +1,13 @@
-var botaoAdicionar = document.querySelector("#adicionar-jogador");
-botaoAdicionar.addEventListener("click", function(event) {
+const formSelector = document.querySelector("#form-adiciona");
+formSelector.addEventListener("submit", (event) => {
   // Desabilita o comportamento padrao do formulario (reset e f5)
   event.preventDefault();
-
-  var form = document.querySelector("#form-adiciona");
   // Extrai dados do jogador a partir do form
-  var jogador = extrairDadosDoJogador(form);
+  const jogador = extrairDadosDoJogador(form);
   // Validacao dos dados
-  var erros = validaJogador(jogador);
+  const erros = validaJogador(jogador);
   // Exibe possiveis erros e retorna caso necessario
-  
+
   if (erros.length > 0) {
     exibeMensagensDeErro(erros, "#erros-form");
     return;
@@ -24,7 +22,7 @@ botaoAdicionar.addEventListener("click", function(event) {
   limpaAlertasErro(); // Limpa o highlight de erros
   limpaResultadoTimes(); // Limpa o resultado da separacao em times
   // Retorna o foco para o input de nickname
-  document.querySelector("#nick").focus();
+  form.nick.focus();
 });
 
 //=============================================================

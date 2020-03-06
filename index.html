@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <div id="preloader">
+  <div id="loader">
     <div id="status">
       <div class="spinner">
         <div class="rect1"></div>
@@ -45,8 +45,8 @@
           <form id="form-adiciona" class="proj-form">
             <div class="form-div">
               <div class="input-div">
-                <input id="nick" name="nick" type="text" placeholder="Nickname" required autofocus />
-                <input id="mmr" name="mmr" type="number" placeholder="MMR" min="-10000" max="10000" step="1" />
+                <input id="nick" name="nick" type="text" placeholder="Nickname" required autofocus autocomplete="off" />
+                <input id="mmr" name="mmr" type="number" placeholder="MMR" min="-10000" max="10000" step="1" autocomplete="off" />
               </div>
               <button id="adicionar-jogador" class="bto" type="submit">Incluir</button>
             </div>
@@ -140,16 +140,6 @@
   <script src="js/busca_r6tab.js"></script>
   <script src="js/gerar_times.js"></script>
   <script src="js/spinner.js"></script>
-  <script>
-    $(window).on('load', function () { // makes sure the whole site is loaded 
-      $('#status').fadeOut(); // will first fade out the loading animation 
-      $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-      $('body').delay(350).css({
-        'overflow': 'visible'
-      });
-    })
-  </script>
-
 
 </body>
 

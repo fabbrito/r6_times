@@ -74,7 +74,7 @@ body {
   font-weight: 700;
   font-size: 0.69em;
   line-height: 2.2;
-  z-index: 1000;
+  z-index: 10;
   padding-top: 3px;
   color: #aaa;
 }
@@ -193,15 +193,23 @@ tr:hover {
   transition: 0.3s;
 }
 
-.bto:hover,
-.bto:focus {
+.bto:hover {
   opacity: 0.6;
+}
+
+.bto:focus {
+  outline: none;
 }
 
 .bto-group {
   display: flex;
   justify-content: center;
   margin-bottom: 1em;
+}
+
+.fadeIn {
+  opacity: initial;
+  transition: 0.3s;
 }
 
 .fadeOut {
@@ -260,7 +268,9 @@ ul {
   transition: background-color 0.3s ease;
 }
 
-#preloader {
+
+/* ============================================ */
+#loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -272,8 +282,10 @@ ul {
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
-  z-index: 99;
+  z-index: 100;
   /* makes sure it stays on top */
+  opacity: 0.2;
+  
 }
 
 #status {
@@ -327,27 +339,23 @@ ul {
 }
 
 @-webkit-keyframes stretchdelay {
-
   0%,
   40%,
   100% {
     -webkit-transform: scaleY(0.4)
   }
-
   20% {
     -webkit-transform: scaleY(1.0)
   }
 }
 
 @keyframes stretchdelay {
-
   0%,
   40%,
   100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
   }
-
   20% {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);

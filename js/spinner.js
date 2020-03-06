@@ -1,13 +1,17 @@
-var spinner = document.querySelector("#spinner");
+ $(window).on('load', function () { // makes sure the whole site is loaded
+   $('#status').fadeOut(); // will first fade out the loading animation 
+   $('#loader').delay(350).fadeOut('slow'); // will fade out the DIV that covers the website. 
+   //  $('body').delay(350).css({'overflow': 'visible'}); // If body has overflow: hidden
+ });
 
-//=============================================================
-function addSpinner() {
-  spinner.classList.add("spinner-border");
-  spinner.classList.add("text-danger")
+ //=============================================================
+ function addSpinner() {
+   $('#loader').fadeIn();
+   $('#status').fadeIn();
+ };
 
-};
-//=============================================================
-function removeSpinner() {
-  spinner.classList.remove("spinner-border");
-  spinner.classList.remove("text-danger")
-};
+ //=============================================================
+ function removeSpinner() {
+   $('#status').fadeOut();
+   $('#loader').delay(350).fadeOut('slow');
+ };
