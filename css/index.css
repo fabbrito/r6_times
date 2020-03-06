@@ -239,10 +239,8 @@ ul {
   list-style-type: none;
 }
 
-#erros-form,
-#erros-busca,
-#erros-gerador {
-  color: rgb(255, 0, 0);
+.erro, .alerta {
+  color: red;
   font-weight: 700;
   font-size: 1em;
   padding-bottom: .5em;
@@ -250,10 +248,8 @@ ul {
   text-transform: uppercase;
 }
 
-#erros-form span,
-#erros-busca span,
-#erros-gerador span {
-  color: black;
+.alerta{
+  color: orangered;
 }
 
 .time0,

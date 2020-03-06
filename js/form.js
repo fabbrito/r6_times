@@ -58,23 +58,14 @@ function adicionaJogadorTabela(objJogador) {
 function validaJogador(objJogador) {
   var erros = [];
   var listaJogadores = document.querySelectorAll('.jogador');
-  if (objJogador.nick.length === 0) {
-    erros.push("O nickname do jogador não pode ser em branco!");
-  } else {
-    listaJogadores.forEach(jogador => {
-      if (jogador.querySelector(".info-nick").textContent.toLowerCase() === objJogador.nick.toLowerCase()){
-        erros.push("Um jogador com o mesmo nickname já existe na tabela!");
-        realceTabela(jogador);
-      };
-    });
-    if (listaJogadores.length >= 10) {
-      erros.push("A quantidade de jogadores deve ser igual a 10!");
+  listaJogadores.forEach(jogador => {
+    if (jogador.querySelector(".info-nick").textContent.toLowerCase() === objJogador.nick.toLowerCase()) {
+      erros.push("Um jogador com o mesmo nickname já existe na tabela!");
+      realceTabela(jogador);
     };
-    if (isNaN(objJogador.mmr)) {
-      erros.push("MMR deve ser um número!");
-    } else if (objJogador.mmr < -5000 || objJogador.mmr > 10000) {
-      erros.push("Valor de MMR inválido! (-5000 < MMR < 10000)!");
-    };
+  });
+  if (listaJogadores.length >= 10) {
+    erros.push("A quantidade de jogadores deve ser menor ou igual a 10!");
   };
   return erros
 };
@@ -88,5 +79,3 @@ function extrairDadosDoJogador(form) {
   };
   return jogador
 };
-
-//=============================================================
