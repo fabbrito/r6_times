@@ -24,27 +24,30 @@ botaoBusca.addEventListener("click", function(event) {
 
 //=============================================================
 function apiSearchRequest(jogador, i, quantJog) {
-  const apiSearchURL = "https://r6tab.com/api/search.php?platform=uplay&search=" + jogador.querySelector(".info-nick").textContent;
+  const apiSearchURL = "https://r6.apitab.com/search/uplay/" + jogador.querySelector(".info-nick").textContent;
   fetch(apiSearchURL)
-    .then(res => res.json())
-    .then(res => {
-      jogador.querySelector(".info-nick").textContent = res.results[0].p_name;
+    .then((res) => res.json())
+    .then((res) => {
+      // Grab the first result
+      let playerObject = res.players[Object.keys(res.players)[0]];
+      jogador.querySelector(".info-nick").textContent = playerObject.profile.p_name;
       // jogador.querySelector(".info-mmr").textContent = results[0].p_currentmmr;
-      apiPlayerRequest(jogador, i, quantJog, res.results[0].p_id);
+      apiPlayerRequest(jogador, i, quantJog, playerObject.profile.p_id);
     })
-    .catch(err => {
+    .catch((err) => {
       erroBuscaJogador(jogador);
-      console.log(`Error with message: ${err}`)
+      console.log(`Error with message: ${err}`);
     });
 };
 
 //=============================================================
 function apiPlayerRequest(jogador, i, quantJog,  p_id) {
-  const apiPlayerURL = "https://r6tab.com/api/player.php?p_id=" + p_id;
+  const apiPlayerURL = "https://r6.apitab.com/player/" + p_id;
   fetch(apiPlayerURL)
     .then(res => res.json())
     .then(res => {
-      jogador.querySelector(".info-mmr").textContent = res.seasonal.current_NA_mmr
+      jogador.querySelector(".info-mmr").textContent =
+        (res.ranked.NA_mmr === 0) ? 2500 : res.ranked.NA_mmr;
     })
     .catch(err => {
       erroBuscaJogador(jogador);
