@@ -25,12 +25,21 @@ botaoBusca.addEventListener("click", function(event) {
 //=============================================================
 function apiSearchRequest(jogador, i, quantJog) {
   const apiSearchURL = "https://r6.apitab.com/search/uplay/" + jogador.querySelector(".info-nick").textContent;
-  fetch(apiSearchURL)
+
+  const mySearchRequest = new Request(apiSearchURL, {
+    method: "GET",
+    headers: new Headers(),
+    mode: "cors",
+    cache: "default",
+  });
+
+  fetch(mySearchRequest)
     .then((res) => res.json())
     .then((res) => {
       // Grab the first result
       let playerObject = res.players[Object.keys(res.players)[0]];
-      jogador.querySelector(".info-nick").textContent = playerObject.profile.p_name;
+      jogador.querySelector(".info-nick").textContent =
+        playerObject.profile.p_name;
       // jogador.querySelector(".info-mmr").textContent = results[0].p_currentmmr;
       apiPlayerRequest(jogador, i, quantJog, playerObject.profile.p_id);
     })
@@ -43,18 +52,24 @@ function apiSearchRequest(jogador, i, quantJog) {
 //=============================================================
 function apiPlayerRequest(jogador, i, quantJog,  p_id) {
   const apiPlayerURL = "https://r6.apitab.com/player/" + p_id;
-  fetch(apiPlayerURL)
-    .then(res => res.json())
-    .then(res => {
+  const myPlayerRequest = new Request(apiPlayerURL, {
+    method: "GET",
+    headers: new Headers(),
+    mode: "cors",
+    cache: "default",
+  });
+  fetch(myPlayerRequest)
+    .then((res) => res.json())
+    .then((res) => {
       jogador.querySelector(".info-mmr").textContent =
-        (res.ranked.NA_mmr === 0) ? 2500 : res.ranked.NA_mmr;
+        res.ranked.NA_mmr === 0 ? 2500 : res.ranked.NA_mmr;
     })
-    .catch(err => {
+    .catch((err) => {
       erroBuscaJogador(jogador);
-      console.log(`Error with message: ${err}`)
+      console.log(`Error with message: ${err}`);
     })
     .then(() => {
-      if (i === (quantJog - 1)) return removeSpinner()
+      if (i === quantJog - 1) return removeSpinner();
       else return;
     });
 };
