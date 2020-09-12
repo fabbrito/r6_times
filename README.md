@@ -5,4 +5,4 @@ Dados Nickname e MMR dos jogadores, o app separa os jogadores em dois times de f
 Se apenas o nick do jogador for informado, a api do R6tab é acessada e os dados necessários são recuperados. 
 
 ## GitHub Pages
-Acesse em: [https://kaeiel.github.io/r6_times/](https://kaeiel.github.io/r6_times/)
+Acesse em: [https://fabbrito.github.io/r6_times/](https://fabbrito.github.io/r6_times/)
