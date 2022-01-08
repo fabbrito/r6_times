@@ -30,16 +30,17 @@
   </div>
   <div class="container">
     <div class="proj-top clearfix">
-      <a href="https://github.com/kaeiel/r6_times/">GitHub Kaeiel</a>
+      <a href="https://github.com/fabbrito/r6_times/">GitHub Fabrício</a>
       <a href="https://github.com/Lucas-H-Souza/r6_times-lucas">GitHub Lucas</a>
       
-      <span class="right"><a href="https://kaeiel.github.io/r6_times/">v0.4</a></span>
+      <span class="right"><a href="https://fabbrito.github.io/r6_times/">v0.5</a></span>
     </div>
     <header class="proj-header">
+      <img src="img/logor6blackice.png" class="inline-img" alt="logo rainbow six" />
       <h1 class="titulo">Gerador de Times<span>Rainbow Six: Siege</span></h1>
     </header>
     <main class="clearfix">
-      <img src="img/logor6blackice.png" class="inline-img" alt="logo rainbow six" />
+      
       <div class="main-box">
         <!-- form section -->
         <section class="form-section">
@@ -50,7 +51,7 @@
                 <input id="nick" name="nick" type="text" placeholder="Nickname" required autofocus autocomplete="off" />
                 <input id="mmr" name="mmr" type="number" placeholder="MMR" min="-10000" max="10000" step="1" autocomplete="off" />
               </div>
-              <button id="adicionar-jogador" class="bto" type="submit">Incluir</button>
+              <button id="adicionar-jogador" class="bto bto-small" type="submit">Incluir</button>
             </div>
           </form>
         </section>
@@ -64,59 +65,11 @@
                 <th>Nickname</th>
                 <th>MMR</th>
                 <th>Time</th>
+                <th class="th-remover"></th>
               </tr>
             </thead>
-            <tbody id="tabela-jogadores">
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Kaeiel</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Floquinhodeneve</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Lanzaaaaa</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Deusnoob..</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Fumacinha-.</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">gbelo3</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Meqtrefe.cotri</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">porc0</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">W4nted-S.A</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
-              <tr class="jogador">
-                <td class="info-nick" contenteditable="true">Ceifeiro-.-.</td>
-                <td class="info-mmr" contenteditable="true"></td>
-                <td class="info-time">----</td>
-              </tr>
+            <tbody id="tabela-jogadores" class="tabela">
+              <!-- Preenchido por cria_tabela_exemplo.js -->
             </tbody>
           </table>
           <div class="bto-group">
@@ -125,22 +78,25 @@
             <button id="limpar-jogadores" class="bto" type="button">Limpar</button>
           </div>
         </section>
-        <!-- error-section -->
+        <!-- Reservado para a exibição de erros -->
         <section class="error-section">
           <ul id="erros-form"></ul>
           <ul id="erros-gerador"></ul>
           <ul id="erros-busca"></ul>
+          <ul id="erros-api"></ul>
         </section>
         <!-- imagem grande para teste do preloader -->
         <!-- <img width="100%" src='https://unsplash.it/3000/3000/?random' /> -->
       </div>
     </main>
   </div>
+  <script src="js/func_tabela.js"></script>
   <script src="js/gerenciador_erros.js"></script>
   <script src="js/form.js"></script>
   <script src="js/editar_tabela.js"></script>
   <script src="js/busca_r6tab.js"></script>
   <script src="js/gerar_times.js"></script>
+  <script src="js/cria_tabela_exemplo.js"></script>
   <script src="js/spinner.js"></script>
 
 </body>
