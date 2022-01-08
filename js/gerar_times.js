@@ -4,6 +4,7 @@ botaoTimes.addEventListener("click", function(event) {
   var listaJogadores = document.querySelectorAll(".jogador");
   // Exibe possiveis erros e retorna caso necessario
   if (listaJogadores.length === 0) {
+    erroGerarTimesQuantJogadores();
     return;
   };
 
@@ -22,7 +23,7 @@ botaoTimes.addEventListener("click", function(event) {
   // Reordena os dados de forma crescente segundo o MMR
   dados.sort((a, b) => (a.mmr - b.mmr));
 
-  // Testa se eh possivel um jogo com os jogadores listados (difMMR < 1000)
+  // Testa se eh possivel um jogo com os jogadores listados (quant > 2 e difMMR < 750)
   if (!jogoPossivel(dados)) {
     return;
   };
@@ -152,9 +153,12 @@ function jogoPossivel(dados) {
   var iMinMMR = dados.map(j => j.mmr).indexOf(minMMR);
   var iMaxMMR = dados.map(j => j.mmr).indexOf(maxMMR);
 
-  // Diferenca de MMR nao deve passar de 1000
-  if ((maxMMR - minMMR) > 1000) {
-    erroGerarTimes([dados[iMinMMR].domObj, dados[iMaxMMR].domObj]);
+  // Diferenca de MMR nao deve passar de 750
+  if ((maxMMR - minMMR) > 750) {
+    erroGerarTimesMmr([dados[iMinMMR].domObj, dados[iMaxMMR].domObj]);
+    return false;
+  } else if (dados.length <= 2) {
+    erroGerarTimesQuantJogadores();
     return false;
   } else {
     return true;
