@@ -3,17 +3,17 @@ formSelector.addEventListener("submit", (event) => {
   // Desabilita o comportamento padrao do formulario (reset e f5)
   event.preventDefault();
   // Extrai dados do jogador a partir do form
-  const jogador = extrairDadosDoJogador(form);
+  const objJogador = extrairDadosDoJogador(form);
   // Validacao dos dados
-  const erros = validaJogador(jogador);
+  const erros = validaJogador(objJogador);
   // Exibe possiveis erros e retorna caso necessario
 
   if (erros.length > 0) {
     exibeMensagensDeErro(erros, "#erros-form");
     return;
   }
-  // Adiciona o jogador na tabela
-  adicionaJogadorTabela(jogador);
+  // Adiciona o jogador na tabela (func_tabela.js)
+  adicionaJogadorTabela(objJogador);
 
   // Reset do formulario e dos erros
   form.reset();
@@ -24,35 +24,6 @@ formSelector.addEventListener("submit", (event) => {
   // Retorna o foco para o input de nickname
   form.nick.focus();
 });
-
-//=============================================================
-function montaTd(dado, classe) {
-  var td = document.createElement("td");
-  td.classList.add(classe);
-  td.textContent = dado;
-  return td
-};
-
-//=============================================================
-function montaTr(objJogador) {
-  var tr = document.createElement("tr");
-  tr.classList.add("jogador");
-
-  tr.appendChild(montaTd(objJogador.nick, "info-nick"));
-  tr.appendChild(montaTd(objJogador.mmr, "info-mmr"));
-  tr.appendChild(montaTd(objJogador.time, "info-time"));
-
-  return tr
-};
-
-//=============================================================
-function adicionaJogadorTabela(objJogador) {
-  // Monta nova linha da tabela
-  var tr = montaTr(objJogador)
-  // Adiciona a nova linha criada
-  var tabela = document.querySelector("#tabela-jogadores");
-  tabela.appendChild(tr);
-};
 
 //=============================================================
 function validaJogador(objJogador) {
@@ -75,7 +46,7 @@ function extrairDadosDoJogador(form) {
   var jogador = {
     nick: form.nick.value,
     mmr: form.mmr.value,
-    time: "----"
+    // time: "----"
   };
   return jogador
 };
