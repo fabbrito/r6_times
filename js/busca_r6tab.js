@@ -1,26 +1,38 @@
 var botaoBusca = document.querySelector("#buscar-jogadores");
 
+//=============================================================
+// Com a API do R6 Tab privada, a busca foi desativada
 botaoBusca.addEventListener("click", function(event) {
-  var listaJogadores = document.querySelectorAll(".jogador");
-
-  listaJogadores.forEach((jogador) => {
-    if (jogador.querySelector(".info-mmr").textContent.length === 0) {
-      addSpinner();
-      return;
-    };
-  });
-
-  listaJogadores.forEach((jogador, i) => {
-    if (jogador.querySelector(".info-mmr").textContent.length === 0) {
-      apiSearchRequest(jogador, i, listaJogadores.length);
-    };
-  });
-
   // fcn em gerenciador_erros.js
   limpaErros(); // Limpa lista de erros
   limpaAlertasErro(); // Limpa o highlight de erros
   limpaResultadoTimes(); // Limpa o resultado da separacao em times
+
+  erroApiR6tab();
 });
+
+//=============================================================
+// botaoBusca.addEventListener("click", function(event) {
+//   var listaJogadores = document.querySelectorAll(".jogador");
+
+//   listaJogadores.forEach((jogador) => {
+//     if (jogador.querySelector(".info-mmr").textContent.length === 0) {
+//       addSpinner();
+//       return;
+//     };
+//   });
+
+//   listaJogadores.forEach((jogador, i) => {
+//     if (jogador.querySelector(".info-mmr").textContent.length === 0) {
+//       apiSearchRequest(jogador, i, listaJogadores.length);
+//     };
+//   });
+
+//   // fcn em gerenciador_erros.js
+//   limpaErros(); // Limpa lista de erros
+//   limpaAlertasErro(); // Limpa o highlight de erros
+//   limpaResultadoTimes(); // Limpa o resultado da separacao em times
+// });
 
 //=============================================================
 function apiSearchRequest(jogador, i, quantJog) {
