@@ -1,104 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerador de Times: R6</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GTR6</title>
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- <meta property="og:title" content="Gerador de Times: R6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fabbrito.github.io/r6_times/" />
+    <meta
+      property="og:description"
+      content="R6 Times é uma aplicação web capaz de emular um sistema de matchmaking utilizado nos jogos mais atuais (ex. Rainbow Six: Siege), separando os jogadores em dois times de forma a equalizar o ranking (MMR) fornecido."
+    />
+    <meta property="og:image" content="img/logor6blackice.png" /> -->
+  </head>
 
-</head>
-
-<body>
-  <div id="loader">
-    <div id="status">
-      <div class="spinner">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
+  <body>
+    <div id="loader">
+      <div id="status">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="proj-top clearfix">
-      <a href="https://github.com/fabbrito/r6_times/">GitHub Fabrício</a>
-      <a href="https://github.com/Lucas-H-Souza/r6_times-lucas">GitHub Lucas</a>
-      
-      <span class="right"><a href="https://fabbrito.github.io/r6_times/">v0.5</a></span>
-    </div>
-    <header class="proj-header">
-      <img src="img/logor6blackice.png" class="inline-img" alt="logo rainbow six" />
-      <h1 class="titulo">Gerador de Times<span>Rainbow Six: Siege</span></h1>
-    </header>
-    <main class="clearfix">
-      
-      <div class="main-box">
-        <!-- form section -->
-        <section class="form-section">
-          <h2 id="titulo-form">Adicionar jogador</h2>
-          <form id="form-adiciona" class="proj-form">
-            <div class="form-div">
-              <div class="input-div">
-                <input id="nick" name="nick" type="text" placeholder="Nickname" required autofocus autocomplete="off" />
-                <input id="mmr" name="mmr" type="number" placeholder="MMR" min="-10000" max="10000" step="1" autocomplete="off" />
+    <div class="container">
+      <div class="proj-top clearfix">
+        <a href="https://github.com/fabbrito/r6_times/"> GitHub Fabrício </a>
+        <a href="https://github.com/Lucas-H-Souza/r6_times-lucas">
+          GitHub Lucas
+        </a>
+
+        <span class="right">
+          <a href="https://fabbrito.github.io/r6_times/">v0.5</a>
+        </span>
+      </div>
+      <header class="proj-header">
+        <img
+          src="img/logor6blackice.png"
+          class="inline-img"
+          alt="logo rainbow six"
+        />
+        <h1 class="titulo">Gerador de Times<span>Rainbow Six: Siege</span></h1>
+      </header>
+      <main class="clearfix">
+        <div class="main-box">
+          <!-- form section -->
+          <section class="form-section">
+            <h2 id="titulo-form">Adicionar jogador</h2>
+            <form id="form-adiciona" class="proj-form">
+              <div class="form-div">
+                <div class="input-div">
+                  <input
+                    id="nick"
+                    name="nick"
+                    type="text"
+                    placeholder="Nickname"
+                    required
+                    autofocus
+                    autocomplete="off"
+                  />
+                  <input
+                    id="mmr"
+                    name="mmr"
+                    type="number"
+                    placeholder="MMR"
+                    min="-10000"
+                    max="10000"
+                    step="1"
+                    autocomplete="off"
+                  />
+                </div>
+                <button
+                  id="adicionar-jogador"
+                  class="bto bto-small"
+                  type="submit"
+                >
+                  Incluir
+                </button>
               </div>
-              <button id="adicionar-jogador" class="bto bto-small" type="submit">Incluir</button>
+            </form>
+          </section>
+
+          <!-- table section -->
+          <section class="table-section">
+            <h2>Tabela de jogadores</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nickname</th>
+                  <th>MMR</th>
+                  <th>Time</th>
+                  <th class="th-remover"></th>
+                </tr>
+              </thead>
+              <tbody id="tabela-jogadores" class="tabela">
+                <!-- Preenchido por cria_tabela_exemplo.js -->
+              </tbody>
+            </table>
+            <div class="bto-group">
+              <button id="buscar-jogadores" class="bto" type="button">
+                Buscar R6Tab
+              </button>
+              <button id="gerar-times" class="bto" type="button">
+                Separar times
+              </button>
+              <button id="limpar-jogadores" class="bto" type="button">
+                Limpar
+              </button>
             </div>
-          </form>
-        </section>
-
-        <!-- table section -->
-        <section class="table-section">
-          <h2>Tabela de jogadores</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Nickname</th>
-                <th>MMR</th>
-                <th>Time</th>
-                <th class="th-remover"></th>
-              </tr>
-            </thead>
-            <tbody id="tabela-jogadores" class="tabela">
-              <!-- Preenchido por cria_tabela_exemplo.js -->
-            </tbody>
-          </table>
-          <div class="bto-group">
-            <button id="buscar-jogadores" class="bto" type="button">Buscar R6Tab</button>
-            <button id="gerar-times" class="bto" type="button">Separar times</button>
-            <button id="limpar-jogadores" class="bto" type="button">Limpar</button>
-          </div>
-        </section>
-        <!-- Reservado para a exibição de erros -->
-        <section class="error-section">
-          <ul id="erros-form"></ul>
-          <ul id="erros-gerador"></ul>
-          <ul id="erros-busca"></ul>
-          <ul id="erros-api"></ul>
-        </section>
-        <!-- imagem grande para teste do preloader -->
-        <!-- <img width="100%" src='https://unsplash.it/3000/3000/?random' /> -->
-      </div>
-    </main>
-  </div>
-  <script src="js/func_tabela.js"></script>
-  <script src="js/gerenciador_erros.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/editar_tabela.js"></script>
-  <script src="js/busca_r6tab.js"></script>
-  <script src="js/gerar_times.js"></script>
-  <script src="js/cria_tabela_exemplo.js"></script>
-  <script src="js/spinner.js"></script>
-
-</body>
-
+          </section>
+          <!-- Reservado para a exibição de erros -->
+          <section class="error-section">
+            <ul id="erros-form"></ul>
+            <ul id="erros-gerador"></ul>
+            <ul id="erros-busca"></ul>
+            <ul id="erros-api"></ul>
+          </section>
+          <!-- imagem grande para teste do preloader -->
+          <!-- <img width="100%" src='https://unsplash.it/3000/3000/?random' /> -->
+        </div>
+      </main>
+    </div>
+    <script src="js/func_tabela.js"></script>
+    <script src="js/gerenciador_erros.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/editar_tabela.js"></script>
+    <script src="js/busca_r6tab.js"></script>
+    <script src="js/gerar_times.js"></script>
+    <script src="js/cria_tabela_exemplo.js"></script>
+    <script src="js/spinner.js"></script>
+  </body>
 </html>
