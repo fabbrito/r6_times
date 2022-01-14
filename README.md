@@ -1,8 +1,8 @@
-## TimesR6
+## R6-Times
 
-Dados Nickname e MMR dos jogadores, o app separa os jogadores em dois times de forma que a diferença da média de MMR entre os dois times seja mínima.
+Entrando com Nickname e MMR dos jogadores, o app separa os jogadores em dois times de forma que a diferença da média de MMR entre os dois times seja mínima. Algumas regras devem ser respeitadas na criação dos times: pelo menos 4 jogadores devem existir na tabela e a máxima diferença de MMR entre dois jogadores deve ser 750 pontos.
 
-Se apenas o nick do jogador for informado, a api do R6tab é acessada e os dados necessários são recuperados. 
+(Defasado - Api do R6tab deixou de ser pública) Se apenas o nick do jogador for informado, a api do R6tab é acessada e os dados necessários são recuperados.
 
 ## GitHub Pages
 Acesse em: [https://fabbrito.github.io/r6_times/](https://fabbrito.github.io/r6_times/)
